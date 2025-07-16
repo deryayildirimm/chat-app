@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat App</title>
+    <style>
+        .message {
+            padding: 5px;
+            margin: 5px;
+            border-radius: 8px;
+            max-width: 60%;
+        }
+
+        .mine {
+            background-color: #dcf8c6;
+            text-align: right;
+            margin-left: auto;
+        }
+
+        .theirs {
+            background-color: #f1f0f0;
+            text-align: left;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Gerçek Zamanlı Chat</h2>
+    <div id="messages"></div>
+    <input id="messageInput" placeholder="Mesaj yaz..." />
+    <button onclick="sendMessage()">Gönder</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        const userName = prompt("Adınızı giriniz : ");
+
+        const socket = io();
+
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+
+        socket.on('chat-message', (data) => {
+            const p = document.createElement('p');
+            p.classList.add('message');
+
+            if (data.user === userName) {
+                p.classList.add('mine'); // bizim mesajımız → sağda
+            } else {
+                p.classList.add('theirs'); // başkasının → solda
+            }
+
+            p.innerText = `[${data.user} - ${data.time}]: ${data.text}`;
+            messagesDiv.appendChild(p);
+        });
+
+        function sendMessage() {
+            const msg = messageInput.value;
+            if (msg.trim() !== '') {
+                socket.emit('chat-message', {
+                    user: userName,
+                    text: msg
+                });
+            }
+
+            messageInput.value = '';
+        }
+    </script>
+</body>
+
+</html>
