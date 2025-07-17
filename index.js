@@ -1,15 +1,20 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
-
 const app = express(); // Creates an Express application
 const server = http.createServer(app);
 const io = new Server(server);
 
-console.log('index.js çalışıyor...');
+const authRoutes = require('./routes/auth');
+const errorHandler = require('./errors/errorHandler');
+
+//JSON Body i okuyabilmek için 
+app.use(express.json());
+app.use('/api/auth', authRoutes); // URL /api/auth ile başlıyorsa authRoutes'a yönlendir
+
 
 io.on('connection', (socket) => {
-   
+
     socket.on('chat-message', (data) => {
         const now = new Date();
         const time = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
@@ -32,6 +37,7 @@ io.on('connection', (socket) => {
 
 
 app.use(express.static('public'));
+app.use(errorHandler);
 
 
 server.listen(3000, () => {
