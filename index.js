@@ -7,11 +7,15 @@ const io = new Server(server);
 
 const authRoutes = require('./routes/auth');
 const errorHandler = require('./errors/errorHandler');
+const { connectDB } = require('./config/db');
+const { swaggerUi, swaggerSpec } = require('./config/swagger');
+
+connectDB();
 
 //JSON Body i okuyabilmek için 
 app.use(express.json());
 app.use('/api/auth', authRoutes); // URL /api/auth ile başlıyorsa authRoutes'a yönlendir
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 io.on('connection', (socket) => {
 

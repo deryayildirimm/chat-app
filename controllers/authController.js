@@ -2,6 +2,26 @@
 const authService = require('../services/authService');
 const wrap = require('../errors/wrapAsync');
 
+/**
+ * @swagger
+ *  /api/auth/register:
+ *   post:
+ *     summary: Kullanıcı kaydı
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userName:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Kayıt başarılı
+ */
 
 
 const login = wrap(async (req, res) => {
