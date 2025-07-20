@@ -1,6 +1,7 @@
 module.exports = {
     USER_NOT_FOUND: "Kullanıcı bulunamadı.",
     USERNAME_ALREADY_EXISTS: "Bu kullanıcı adı zaten mevcut.",
+    EMAIL_ALREADY_EXISTS: "Bu email zaten kullanılıyor" ,
     INVALID_CREDENTIALS: "Geçersiz kullanıcı adı veya şifre.",
     INVALID_PASSWORD: "Şifre hatalı.",
     PASSWORD_REQUIRED: "Şifre boş bırakılamaz.",
