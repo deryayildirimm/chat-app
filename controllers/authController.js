@@ -57,9 +57,9 @@ const register = wrap(async (req, res) => {
 const login = wrap(async (req, res) => {
 
     const { userName,  password } = req.body;
-    const msg = await authService.loginUser(userName, password);
+    const result = await authService.loginUser(userName, password);
 
-    res.status(200).json({ message: msg });
+    res.status(200).json(result);
 })
 
 
