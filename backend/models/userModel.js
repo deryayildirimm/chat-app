@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     userName: {
-        type : String,
+        type: String,
         required: true,
         unique: true,
     },
@@ -12,18 +12,16 @@ const userSchema = new mongoose.Schema({
     },
 
     email: {
-        type: String,   
+        type: String,
         required: true,
-        unique : true,
+        unique: true,
     },
-/*
-
     createdAt: {
-        type: Date, 
+        type: Date,
         default: Date.now,
     },
     updatedAt: {
-        type: Date, 
+        type: Date,
         default: Date.now,
     },
     isActive: {
@@ -44,10 +42,11 @@ const userSchema = new mongoose.Schema({
     },
     roles: {
         type: [String],
+        enum: ["admin", "user"],
         default: ['user'],
     }
-        */
-    });
+
+});
 
 const User = mongoose.model('User', userSchema);
 

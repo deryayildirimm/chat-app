@@ -5,7 +5,6 @@ const UserNotFoundError = require('../errors/UserNotFoundError');
 const errorMessages = require('../constants/errorMessages');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../config/jwt');
-const { response } = require('express');
 
 
 async function registerUser(userName, password, email) {
