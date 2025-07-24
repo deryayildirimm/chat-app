@@ -7,10 +7,12 @@ const app = express(); // Creates an Express application
 const server = http.createServer(app);
 const io = new Server(server);
 
+const cors = require("cors");
 const authRoutes = require('./routes/auth');
 const errorHandler = require('./errors/errorHandler');
 const { connectDB } = require('./config/db');
 const { swaggerUi, swaggerSpec } = require('./config/swagger');
+const AppError = require("./errors/AppError");
 
 connectDB();
 
@@ -18,6 +20,19 @@ connectDB();
 app.use(express.json());
 app.use('/api/auth', authRoutes); // URL /api/auth ile başlıyorsa authRoutes'a yönlendir
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+const allowedOrigins = [process.env.FRONTEND_URL];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new AppError("Not allowed by CORS", 400));
+    }
+  },
+  credentials: true
+}));
 
 io.on('connection', (socket) => {
 
