@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -48,4 +50,5 @@ server.listen(3000, () => {
     console.log("Server çalışıyor. ");
 });
 
+console.log("JWT_SECRET:", process.env.JWT_SECRET);
 

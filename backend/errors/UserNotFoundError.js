@@ -1,4 +1,4 @@
-const AppError = require("./AppError");
+const AppError = require("../errors/AppError");
 const messages = require('../constants/errorMessages');
 
 class UserNotFoundError extends AppError {
