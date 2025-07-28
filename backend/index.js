@@ -16,23 +16,29 @@ const AppError = require("./errors/AppError");
 
 connectDB();
 
-//JSON Body i okuyabilmek için 
-app.use(express.json());
-app.use('/api/auth', authRoutes); // URL /api/auth ile başlıyorsa authRoutes'a yönlendir
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-const allowedOrigins = [process.env.FRONTEND_URL];
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'http://localhost:3000' 
+];
+console.log("✅ FRONTEND_URL:", process.env.FRONTEND_URL);
 
 app.use(cors({
   origin: function (origin, callback) {
+    console.log("🟡 Gelen origin:", origin);
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new AppError("Not allowed by CORS", 400));
+      callback(new AppError("Not allowed by CORS", 403));
     }
   },
   credentials: true
 }));
+
+//JSON Body i okuyabilmek için 
+app.use(express.json());
+app.use('/api/auth', authRoutes); // URL /api/auth ile başlıyorsa authRoutes'a yönlendir
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 io.on('connection', (socket) => {
 
@@ -54,6 +60,7 @@ io.on('connection', (socket) => {
         console.log('Kullanıcı ayrıldı:', socket.id);
     });
 });
+
 
 
 
