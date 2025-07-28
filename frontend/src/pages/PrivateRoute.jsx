@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import jwt_decode from "jwt-decode";
+import {jwtDecode } from "jwt-decode";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, token, logout } = useAuth();
@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   }
 
   try {
-    const decoded = jwt_decode(token);
+    const decoded = jwtDecode (token);
     const currentTime = Date.now() / 1000;// sn cinsine çevirmek için 
 
     if (decoded.exp < currentTime) {
