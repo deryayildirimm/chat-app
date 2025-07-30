@@ -1,0 +1,19 @@
+.chat-list-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+
+.chat-list-title {
+  font-size: 14px;   /* önce 16px gibiydi */
+  font-weight: 600;
+  margin: 0;
+}
+
+.chat-list-subtext {
+  font-size: 12px;
+  color: #666;
+  margin-top: 3px;
+}

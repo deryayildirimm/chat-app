@@ -1,0 +1,26 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  height: 100vh;
+  background-color: #1f2b38;
+  padding: 1rem 0;
+  border-right: 1px solid #3d4c5a;
+}
+
+.sidebar-top {
+  flex-grow: 1;
+}
+
+.sidebar-avatar {
+  margin-bottom: 1rem;
+}
+
+.sidebar-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}

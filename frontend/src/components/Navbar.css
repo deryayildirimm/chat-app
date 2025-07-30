@@ -1,0 +1,37 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.header-wrapper ul {
+    display: flex;
+
+}
+
+.header-wrapper ul a,
+.logo>a {
+    text-decoration: none;
+    color: var(--secondry-link-color);
+    padding: 0.5rem;
+    font-size: 15px;
+}
+
+.header-wrapper .active a {
+    color: var(--primay-link-color);
+}
+
+.header-wrapper .active a:hover {
+    color: var(--primay-link-color);
+}
+
+.logo a {
+    font-size: 1.5rem;
+    padding-left: 0;
+    color: var(--primay-link-color);
+}
+
+.header-wrapper ul li a:hover {
+    color: var(--box-background-color);
+}

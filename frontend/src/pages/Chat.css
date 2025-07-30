@@ -1,0 +1,76 @@
+.chat-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--chat-bg-color);
+  color: var(--chat-text-color);
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0 0 5%; /* ya da 60px gibi sabit görünümle eş değer olur */
+  background-color: var(--chat-sidebar);
+  border-right: 1px solid var(--chat-border-color);
+  min-width: 60px;
+  max-width: 80px;
+}
+.chat-search {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 0.8rem 0;
+  outline: none;
+}
+
+
+.chatlist-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.chatlist-navbar h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+.user-toggle {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.user-toggle:hover {
+  background-color: #f0f0f0;
+}
+
+.chat-list {
+  flex: 0 0 25%;
+  min-width: 250px;
+  max-width: 400px;
+  background-color: var(--chat-chatlist);
+  border-right: 1px solid var(--chat-border-color);
+}
+
+.chat-box {
+  flex: 1;
+  background-color: var(--chat-chatbox);
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .chat-list {
+    display: none; /* mobilde mesaj listesi gizlenebilir */
+  }
+
+  .sidebar {
+    flex: 0 0 10%;
+  }
+}

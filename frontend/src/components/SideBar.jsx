@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom";
+
+import "./SideBar.css";
 
 const Sidebar = () => {
   return (
-    <div style={{ width: "60px", height: "100vh", background: "#ddd", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-      <div>
-        {/* İkonlar vs eklenebilir */}
+     <div className="sidebar">
+      <div className="sidebar-top">
+        {/* Boş bırakılabilir ya da ikonlar konur */}
       </div>
-      <div style={{ padding: "1rem" }}>
-        <Link to="/profile">
-          <img src="/avatar.png" alt="Profil" width="40" style={{ borderRadius: "50%" }} />
-        </Link>
+      <div className="sidebar-avatar">
+        <img src="https://i.pravatar.cc/100" alt="avatar" />
       </div>
     </div>
   );

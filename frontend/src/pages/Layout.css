@@ -12,12 +12,6 @@
     font-weight: normal;
 }
 
-@font-face {
-    font-family: "Metropoliss";
-    src: url("./font/Metropolis-Bold.woff");
-    font-weight: bold;
-}
-
 :root {
     --primary-color: #212529;
 
@@ -46,45 +40,7 @@ header {
     padding: 1.2rem;
 }
 
-.header-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
 
-
-}
-
-.header-wrapper ul {
-    display: flex;
-
-}
-
-.header-wrapper ul a,
-.logo>a {
-    text-decoration: none;
-    color: var(--secondry-link-color);
-    padding: 0.5rem;
-    font-size: 15px;
-}
-
-.header-wrapper .active a {
-    color: var(--primay-link-color);
-}
-
-.header-wrapper .active a:hover {
-    color: var(--primay-link-color);
-}
-
-.logo a {
-    font-size: 1.5rem;
-    padding-left: 0;
-    color: var(--primay-link-color);
-}
-
-.header-wrapper ul li a:hover {
-    color: var(--box-background-color);
-}
 
 .hide {
     display: none;
@@ -101,7 +57,7 @@ header {
     text-align: center;
 /*    background-color: var(--box-background-color); */
     border-radius: var(--border-radius);
-    margin-top: 3rem;
+  /*  margin-top: 3rem; */
 }
 
 .hero-section h1 {
@@ -124,7 +80,6 @@ header {
 .hero-section a {
     text-decoration: none;
     color: var(--primay-link-color);
-    background-color: #0d6efd;
     padding: 1rem;
     border-radius: var(--border-radius);
     margin-top: 1rem;

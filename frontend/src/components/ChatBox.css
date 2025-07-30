@@ -1,0 +1,28 @@
+.chat-box-content {
+  padding: 1rem;
+}
+
+.chat-message-list {
+  list-style: none;
+  padding: 0;
+}
+
+.chat-message-list li {
+  background-color: #e6f3ff;
+  padding: 0.6rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  max-width: 70%;
+}
+
+.empty-chat {
+  color: #888;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.chat-box-placeholder {
+  text-align: center;
+  margin-top: 3rem;
+  color: #aaa;
+}

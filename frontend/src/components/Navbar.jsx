@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom";
+import './Navbar.css';
 
 const Navbar = () => {
   return (
     <header>
-      <div class="header-wrapper">
-        <div class="logo">
+      <div className="header-wrapper">
+        <div className="logo">
           <a href="">ChatApp</a>
         </div>
         <ul>
-          <li class="active">
-            {" "}
+          <li className="active">
             <Link to="/login">Login</Link>
           </li>
           <li>
-            {" "}
             <Link to="/register">Register</Link>
           </li>
         </ul>
