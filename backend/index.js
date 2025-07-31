@@ -7,12 +7,33 @@ const app = express(); // Creates an Express application
 const server = http.createServer(app);
 const io = new Server(server);
 
+const cors = require("cors");
 const authRoutes = require('./routes/auth');
 const errorHandler = require('./errors/errorHandler');
 const { connectDB } = require('./config/db');
 const { swaggerUi, swaggerSpec } = require('./config/swagger');
+const AppError = require("./errors/AppError");
 
 connectDB();
+
+
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'http://localhost:3000' 
+];
+console.log("✅ FRONTEND_URL:", process.env.FRONTEND_URL);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    console.log("🟡 Gelen origin:", origin);
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new AppError("Not allowed by CORS", 403));
+    }
+  },
+  credentials: true
+}));
 
 //JSON Body i okuyabilmek için 
 app.use(express.json());
@@ -42,6 +63,7 @@ io.on('connection', (socket) => {
 
 
 
+
 app.use(express.static('public'));
 app.use(errorHandler);
 
@@ -51,4 +73,6 @@ server.listen(3000, () => {
 });
 
 console.log("JWT_SECRET:", process.env.JWT_SECRET);
+
+
 
