@@ -10,4 +10,5 @@ module.exports = {
     BAD_REQUEST: "Geçersiz istek.",
     TOKEN_MISSING: "Token eksik",
     TOKEN_INVALID: "Token geçersiz",
+    CORS_ERROR: "Cors hatası",
 }

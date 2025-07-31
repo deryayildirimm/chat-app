@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = 'mongodb+srv://admin:123456.@chat-app-cluster.lkl2xil.mongodb.net/chatApp?retryWrites=true&w=majority&appName=chat-app-cluster';
+const uri = process.env.DB_URL;
 
 async function connectDB() {
     try {

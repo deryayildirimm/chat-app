@@ -13,6 +13,7 @@ const errorHandler = require('./errors/errorHandler');
 const { connectDB } = require('./config/db');
 const { swaggerUi, swaggerSpec } = require('./config/swagger');
 const AppError = require("./errors/AppError");
+const errorMessages = require("./constants/errorMessages");
 
 connectDB();
 
@@ -29,7 +30,7 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new AppError("Not allowed by CORS", 403));
+      callback(new AppError(errorMessages.CORS_ERROR, 403));
     }
   },
   credentials: true
@@ -72,7 +73,6 @@ server.listen(3000, () => {
     console.log("Server çalışıyor. ");
 });
 
-console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 
 

@@ -31,7 +31,7 @@ ChatApp supports secure user authentication and provides a clean, responsive int
 
 You can explore and test the backend API via Swagger:
 
-👉 `http://localhost:5000/api-docs`
+👉 `http://localhost:3000/api-docs`
 
 ---
 
