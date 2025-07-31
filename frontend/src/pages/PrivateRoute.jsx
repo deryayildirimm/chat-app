@@ -1,9 +1,13 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import {jwtDecode } from "jwt-decode";
+import Spinner from "../components/Spinner";
 
 const PrivateRoute = ({ children }) => {
-  const { isAuthenticated, token, logout } = useAuth();
+  const { isAuthenticated, token, logout , loading } = useAuth();
+
+  // Token kontrolü tamamlanmadan hiçbir yönlendirme yapma!
+  if (loading) return <Spinner/> 
 
   if (!isAuthenticated || !token) {
     // replace sayesinde bir önceki sayfayı memory den siler

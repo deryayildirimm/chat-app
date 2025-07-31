@@ -1,10 +1,9 @@
-import "./Chat.css";
+import "./ChatPage.css";
 import { useState } from "react";
-import ChatBox from "../components/ChatBox";
-import SideBar from "../components/SideBar";
-import ChatList from "../components/ChatList";
+import { ChatBox, ChatList,SideBar } from "../components/Chat";
 
-const Chat = () => {
+
+const ChatPage = () => {
   const [showUserList, setShowUserList] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedChat, setSelectedChat] = useState(null);
@@ -48,13 +47,13 @@ const Chat = () => {
       id: 10,
       name: "Mehmet",
       email: "mehmet@example.com",
-      avatar: `https://i.pravatar.cc/150`,
+      avatar: "https://i.pravatar.cc/150?img=8",
     },
     {
       id: 11,
       name: "Zeynep",
       email: "zeynep@example.com",
-      avatar: "https://i.pravatar.cc/150",
+      avatar: "https://i.pravatar.cc/150?img=18",
     },
   ];
 
@@ -105,4 +104,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default ChatPage;

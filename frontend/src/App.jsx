@@ -3,7 +3,7 @@ import "./App.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import Chat from "./pages/Chat";
+import ChatPage from "./pages/ChatPage";
 import Profile from "./pages/Profile";
 import Layout from "./pages/Layout";
 import { AuthProvider } from "./context/AuthContext";
@@ -21,7 +21,7 @@ function App() {
           path: "chat",
           element: (
             <PrivateRoute>
-              <Chat />
+              <ChatPage />
             </PrivateRoute>
           ),
         },
