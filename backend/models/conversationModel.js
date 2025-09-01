@@ -8,4 +8,4 @@ const conversationSchema = new mongoose.Schema({
     updatedAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Conversation" , conversationSchema);
+module.exports = mongoose.model("Conversation", conversationSchema);
