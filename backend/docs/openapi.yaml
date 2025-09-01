@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: Chat API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - BearerAuth: []
+paths:
+  /api/auth/login:
+    post:
+      security: []   # public
+      summary: Kullanıcı girişi
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [userName, password]
+              properties:
+                userName: { type: string }
+                password: { type: string }
+      responses:
+        '200': { description: OK }

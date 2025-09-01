@@ -9,13 +9,14 @@ GET /api/messages/:conversationId – Bir conversation’ın tüm mesajlarını 
 
 DELETE /api/messages/:messageId – Mesajı sil
 
-Gelişmiş ek özellik istersen:
-
 PATCH /api/messages/:id/read – Mesajı okundu olarak işaretle
 
 GET /api/messages/unread – Okunmamış mesajlar
 */
 
 router.post('/' , authentication, messageController.sendMessage );
-router.get('/:conversationId' , authentication, messageController.getMessagesByConversation);
-router.delete('/:messageId' , authentication, messageController.deleteMessage);
+router.get('/:conversationId' , authentication, messageController.listByConversation);
+router.post('/read', authentication , messageController.markRead);
+// router.delete('/:messageId' , authentication, messageController.deleteMessage);
+
+module.exports = router;
