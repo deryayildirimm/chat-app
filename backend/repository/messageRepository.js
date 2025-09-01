@@ -14,7 +14,7 @@ class MessageRepository extends BaseRepository{
       {
         page,
         limit,
-        sort: { sentAt: -1 },                          // en yeni mesaj en üstte
+        sort: { sentAt: -1 }, // en yeni mesaj en üstte
         populate: { path: "userId", select: "userName profilePicture" },
         lean: true
       }

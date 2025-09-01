@@ -2,7 +2,6 @@ const conversationService = require("../services/conversationService");
 
 module.exports = {
 
-    //Birebir konuşma başlat
     async startDirect(req, res) {
         const creatorId = req.user && req.user.id;
         const {peerId} = req.body;
@@ -51,8 +50,5 @@ module.exports = {
             return res.status(status).json({message : error.message || "Sunucu hatası"});
         }
     }
-
-
-
 
 }
